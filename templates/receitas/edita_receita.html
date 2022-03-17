@@ -5,7 +5,7 @@
 <div id="preloader">
     <i class="circle-preloader"></i>
     <img src="{% static 'img/core-img/pizza.png' %}" alt="">
-</div>
+</div> 
 
 {% include 'partials/_busca.html' %}
 
@@ -17,7 +17,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h3>Edite aqui sua receita, {{ user.username }} :)</h3>
+                    <h3>Edite aqui sua receita, 
+                        {% if user.first_name != '' %}
+                                {{ user.first_name }}
+                                {% if user.last_name != '' %}
+                                    {{ user.last_name }}
+                                {% endif %}
+                            {% else %}
+                                {{ user.username }}
+                        {% endif %} :)</h3>
                 </div>
             </div>
         </div>
